@@ -1,8 +1,31 @@
-class Feature:
-    variable = "member variable"
+from abc import ABC, abstractmethod
 
-    def function(self):
-        print("member function")
+class Feature(ABC):
+    name = ''
+    @abstractmethod
+    def give(self):
+        pass 
+    @abstractmethod
+    def attack(self):
+        pass
+    @abstractmethod
+    def climb(self):
+        pass
+    @abstractmethod
+    def read(self):
+        pass
+    @abstractmethod
+    def examine(self):
+        pass
+    @abstractmethod
+    def talk(self):
+        pass
+    @abstractmethod
+    def open(self):
+        pass
+    @abstractmethod
+    def close(self):
+        pass
 
 class Door(Feature):
 
