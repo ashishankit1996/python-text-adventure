@@ -1,6 +1,16 @@
-door1 = Door(true)
-print(door._open)
+from Feature import Door
+from Colors import *
+from colorama import init, deinit
 
+init()
+
+door1 = Door(True)
+print(door1._open)
+print(door1.poop())
+
+print('\033[94m' + 'succ' + '\033[0m')
+
+deinit()
 
 # go
 #   north
@@ -8,9 +18,13 @@ print(door._open)
 #	east
 #	west
 # take/drop/eat/drink
-#	<item name>[quantity]
+#	<item name>[quantity|all]
 #	all
-# give/attack/climb/read/examine/talk/open/close
+# give
+#   <recipient : feature>
+#       <item : item>
+#       all
+# attack/climb/read/examine/talk/open/close
 #	<feature>
 # again
 # save/load
