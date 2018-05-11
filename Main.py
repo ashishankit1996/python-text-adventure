@@ -34,3 +34,18 @@ deinit()
 #	<target : feature>
 # repeat
 # save/load
+                                                         
+# ____              ___                                    
+# `Mb(      db      )d'                                    
+#  YM.     ,PM.     ,P                                     
+#  `Mb     d'Mb     d' ____    ___ ___  __ ___  __    __   
+#   YM.   ,P YM.   ,P  `MM(    )M' `MM 6MM `MM 6MMb  6MMb  
+#   `Mb   d' `Mb   d'   `Mb    d'   MM69 "  MM69 `MM69 `Mb 
+#    YM. ,P   YM. ,P     YM.  ,P    MM'     MM'   MM'   MM 
+#    `Mb d'   `Mb d'      MM  M     MM      MM    MM    MM 
+#     YM,P     YM,P       `Mbd'     MM      MM    MM    MM 
+#     `MM'     `MM'        YMP      MM      MM    MM    MM 
+#      YP       YP          M      _MM_    _MM_  _MM_  _MM_
+#                          d'                              
+#                      (8),P                               
+#                       YMM                                
