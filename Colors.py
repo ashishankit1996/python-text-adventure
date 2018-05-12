@@ -12,5 +12,5 @@ COLOR = {
     'end': '\033[0m'
 }
 
-def colortext(message, color='red'):
-    return COLOR.get(color.lower(), COLOR['default']) + message + COLOR.get('end')
+def colorprint(message, color='red'):
+    print(COLOR.get(color.lower(), COLOR['default']) + message + COLOR.get('end'))
