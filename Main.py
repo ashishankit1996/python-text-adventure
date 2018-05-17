@@ -1,17 +1,24 @@
 from Player import Player
 from Cell import cells
-from Entity import Entity
-from Entities.Door import Door
 from Colors import colorprint
 from colorama import init, deinit
+from pathlib import Path
 
 init()
 
 running = True
-player = Player(4,'Default',0,[])
+player = Player(4,'Default',0,[],100)
 
 #if no previous save exists
-#   create new file
+save = Path("save")
+if(save.is_file()):
+    savefile = open('save')
+else:
+    #create new file
+    pass
+
+
+#player.save()
 
 while running:
     cmd = input('>>> ').lower().split(' ')
@@ -33,15 +40,24 @@ while running:
             colorprint('you take the ' + cmd[1], 'green')
             # remove the item node from the current room
             del(cells[player.cell]['item'])
+            print(cells)
 
         # if the current cell AND the argument of take is gold
         elif('gold' in cells[player.cell] and cmd[1] == 'gold'):
             player.money += cells[player.cell]['gold']
-            colorprint('you take the gold.', 'yellow')
+            colorprint('you take the gold', 'yellow')
             del(cells[player.cell]['gold'])
 
         else:
             colorprint('there is no ' + cmd[1] + ' to take', 'red')
+    
+    elif(cmd[0] == 'save'):
+        pass
+
+    elif(cmd[0] == 'quit'):
+        break
+        
+
     else:
         colorprint('WHAT DO YOU WANT FROM ME?', 'red')
 
@@ -65,7 +81,6 @@ deinit()
 # attack/climb/read/examine/talk/open/close
 #	<target : feature>
 # inventory
-# repeat
 # save/load
                                                          
 # ____              ___                                    
@@ -82,3 +97,9 @@ deinit()
 #                          d'                              
 #                      (8),P                               
 #                       YMM                                
+
+#sator
+#arepo
+#tenet
+#opera
+#rotas
