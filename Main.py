@@ -4,24 +4,38 @@ from Game import title, clear
 from Colors import colorprint
 from colorama import init, deinit
 from pathlib import Path
+import time
 
 init()
 
 running = True
 
-player = Player(0,'',0,[],0)
+player = Player('',0,0,0,[])
 
-player.load()
+#player.save()
+#player.load()
 
-#title()
+title()
 
 #if a previous save exists
 if(Path('save').is_file()):
 	print('Previous save found. Load this game?')
-	yesno = input('>>> ')
-
-
-player.save()
+	loadOldSave = ''
+	#every time the player says anything besides yes or no, ask again
+	while(not (loadOldSave == 'yes' or loadOldSave == 'no')):
+		loadOldSave = input('>>> ').lower()
+		if(loadOldSave == 'yes'):
+			print('Loading saved game...')
+			time.sleep(1)
+			player.load()
+		elif(loadOldSave == 'no'):
+			print('Starting new game...')
+			time.sleep(1)
+			player.create()
+else:
+	print('No previous save found. Starting new game')
+	time.sleep(1)
+	player.create()
 
 clear()
 
@@ -59,18 +73,32 @@ while running:
 			colorprint('there is no ' + cmd[1] + ' to take', 'red')
 	
 	elif(cmd[0] == 'save'):
+		print('Saving game...')
+		time.sleep(1)
+		player.save()
 
-		pass
+	elif(cmd[0] == 'load'):
+		print('Loading saved game...')
+		time.sleep(1)
+		player.load()
 
 	elif(cmd[0] == 'quit'):
-		break
-		
+		print('Quit without saving?')
+		ans = input('>>> ').lower()
+		if(ans == 'yes'):
+			print('Bye')
+			time.sleep(1)
+			break
+		else:
+			print('Saving game...')
+			time.sleep(1)
+			player.save()
+			break
 
 	else:
 		colorprint('I dont know how to do that.', 'red')
 
 deinit()
-savefile.close()
 
 # take
 #	<item : string>
@@ -85,7 +113,6 @@ savefile.close()
 # attack/climb/read/examine/talk/open/close
 #	<target : feature>
 # inventory
-# save/load
 
 #sator
 #arepo
